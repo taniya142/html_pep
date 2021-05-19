@@ -23,9 +23,15 @@ request("https://www.espncricinfo.com/series/ipl-2021-1249214/punjab-kings-vs-de
 function callback(error, response, html){
     if (!error){
         const manipulationTool = cheerio.load(html);
-        let comments = manipulationTool(".col-14.col-md-15.col-lg-14 .match-comment-long-text p");
-        
-        let reqComment = manipulationTool(comments[0]).text();
+        // let comments = manipulationTool(".col-14.col-md-15.col-lg-14 .match-comment-long-text p");
+
+        // let reqComment = manipulationTool(comments[0]).text();
+        // console.log(reqComment);
+
+        let comments = manipulationTool(".match-comment-long-text.match-comment-padder p");
+        let reqComment = manipulationTool(comments[5]).text();
         console.log(reqComment);
+        
+        
     }
 }
